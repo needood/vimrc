@@ -1,6 +1,7 @@
 execute pathogen#infect()
 
 
+
 set laststatus=2
 
 function UpdateStatus()
@@ -25,6 +26,7 @@ let g:mapleader = ','
 
 set mouse=a
 
+let g:neocomplcache_enable_at_startup = 1
 
 
 " Set ultisnips triggers
@@ -32,57 +34,35 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" Set youCompleteMe
+let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-k>', '<Up>']
+
+
+""""""""""syntastic""""""""""""
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_html_checkers = ['jshint']
+let g:syntastic_json_checkers = ['jsonlint']
+let g:syntastic_check_on_open = 1
+"set error or warning signs
+"let g:syntastic_error_symbol = '✗'
+"let g:syntastic_warning_symbol = '⚠'
+"whether to show balloons
+let g:syntastic_enable_balloons = 1
+let g:syntastic_always_populate_loc_list=1
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-"
-"	let g:neocomplcache_disable_auto_complete = 1
-"
-"
-"	" Use smartcase.
-"	let g:neocomplcache_enable_smart_case = 1
-"	" Set minimum syntax keyword length.
-"	let g:neocomplcache_min_syntax_length = 3
-"	let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-"
-"	let g:neocomplcache_enable_auto_select = 0
-"	"let g:neocomplcache_enable_quick_match = 1
-"
-"
-"
-"
-"	"let g:shell_fullscreen_always_on_top = 0
-"
-"
-"	"let g:SuperTabNoCompleteBefore=[]
-"	"let g:SuperTabNoCompleteAfter = [',', '\s', ';', '/', '^']
-"	"let g:SuperTabDefaultCompletionType = '<c-x><c-u>'
-"	"let g:SuperTabMappingForward = '<nul>'
-"	"let g:SuperTabMappingBackward = '<s-nul>'
-"	"
-"	"
-"	"
-"
-"	inoremap <expr><space>  pumvisible() ? neocomplcache#close_popup() . "\<SPACE>" : "\<SPACE>"
-"	inoremap <expr><s-space> pumvisible() ? "\<c-n>" : neocomplcache#start_manual_complete()
-"	inoremap <expr><c-j> pumvisible() ? "\<c-n>":"\<c-j>"
-"	inoremap <expr><c-k> pumvisible() ? "\<c-p>":"\<c-k>"
 
-
-"au BufNewFile,BufRead *.styl	setf stylus
+au BufNewFile,BufRead *.styl	setf stylus
 au BufNewFile,BufRead *.less	setf less
 
-au FileType css,less,stylus setlocal omnifunc=csscomplete#CompleteCSS 
+au FileType css,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
 au FileType less setlocal syntax=css
-au FileType css,stylus,less ColorVAutoPreview
-au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags 
-au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
+au FileType html,tpl,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType python setlocal omnifunc=pythoncomplete#Complete
-au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-au Filetype java setlocal omnifunc=javacomplete#Complete
+" au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" au Filetype java setlocal omnifunc=javacomplete#Complete
 
 " UTF-8 ±àÂë
 let &termencoding = &encoding
@@ -106,7 +86,8 @@ set hid
 set clipboard+=unnamed 
 
 
-colo railscasts "distinguished
+syn enable
+colo desert
 
 set autoread
 
@@ -129,6 +110,8 @@ set list
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 
 set showmatch
+
+set guifont=Monospace\ 10
 
 
 " ÏÔÊŸÐÐºÅ
@@ -203,6 +186,7 @@ nnoremap r viw
 nnoremap R ^v$h
 nmap <Leader>aj jRdkR<c-y>,a<cr>"0p
 nmap <Leader>a RdjR<c-y>,a<cr>"0p
+nnoremap <C-C> gk
 
 
 ca wc w<CR>:! coffee -o %:p:h %
@@ -284,3 +268,18 @@ command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose('<bang>', '<arg
 nnoremap <silent> <Leader>bd :Bclose<CR>
 nnoremap <silent> <Leader>bD :Bclose!<CR>
 ca bd Bclose
+
+
+
+
+
+noremap Y "+y
+noremap P "+p
+
+
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>

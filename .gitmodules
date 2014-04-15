@@ -37,3 +37,6 @@
 [submodule "bundle/vim-jsbeautify"]
 	path = bundle/vim-jsbeautify
 	url = https://github.com/maksimr/vim-jsbeautify.git
+[submodule "bundle/neocomplete.vim"]
+	path = bundle/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
