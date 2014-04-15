@@ -1,15 +1,9 @@
-[submodule "bundle/ultisnips"]
-	path = bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim
-[submodule "bundle/ctrlp-funky"]
-	path = bundle/ctrlp-funky
-	url = https://github.com/tacahiroy/ctrlp-funky
 [submodule "bundle/emmet-vim"]
 	path = bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim
@@ -37,12 +31,6 @@
 [submodule "bundle/vim-stylus"]
 	path = bundle/vim-stylus
 	url = https://github.com/wavded/vim-stylus
-[submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule "bundle/tern_for_vim"]
-	path = bundle/tern_for_vim
-	url = https://github.com/marijnh/tern_for_vim.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
